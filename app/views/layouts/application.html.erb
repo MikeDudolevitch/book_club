@@ -7,12 +7,85 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BOOK CLUB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
+        </li>
+        <% if logged_in? %>
+        <li class="nav-item">
+                  </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            View Your
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/characters">Characters</a></li>
+            <li><a class="dropdown-item" href="/categories">Classes</a></li>
+            <li><a class="dropdown-item" href="/races">Races</a></li>
+            <li><a class="dropdown-item" href="/weapons">Weapons</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/campaigns">Campaigns</a></li>
+          </ul>
+        </li>
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Create New
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/characters/new">Characters</a></li>
+            <li><a class="dropdown-item" href="/categories/new">Classes</a></li>
+            <li><a class="dropdown-item" href="/races/new">Races</a></li>
+            <li><a class="dropdown-item" href="/weapons/new">Weapons</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/campaigns/new">Campaigns</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li>
+         </li>
+         <li>
+            <%= button_to 'Logout', destroy_path, class: 'nav-link active', method: "delete" %>
+         </li>
+         <% else %>
+            <li>
+                <%= link_to 'Login', login_path, class: 'nav-link active' %>
+            </li>
+            <li>
+                <%= link_to 'Signup', signup_path, class: 'nav-link active' %>
+            </li>
+            <li>
+                <%= button_to 'Login with Google', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
+            </li>
+        <% end %>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-  </body>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+       </body>
+
+
+
 </html>
