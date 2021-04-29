@@ -1,0 +1,25 @@
+<h1> Welcome to <%= @club.name %> </h1>
+
+
+<% if @current_user.is_a_member(@club) %>
+    <%= @club.zoom_link %>
+<% else %>
+    <%= #link_to join club %>
+<% end %> 
+
+Current Book: <%= @club.current_book.name %>
+
+<% if @current_user.is_admin %>
+    Virtual Meeting Url: 
+<% end %>
+
+<ul>
+<% @club.books.each do |b| %>
+    <li><%= b.name %></li>
+<% end %>
+</ul>
+
+
+
+
+
