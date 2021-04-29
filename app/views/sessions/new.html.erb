@@ -1,0 +1,15 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1> Sign-In</h1>
+<%= form_with(scope: :user, url: login_path) do |f| %>
+    <%= f.label "username" %>
+    <%= f.text_field "username" %>
+    <%= f.label "password" %>
+    <%= f.password_field "password" %>
+    <%= f.submit "Let's Party" %>
+    <% end %>

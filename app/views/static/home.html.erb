@@ -1,10 +1,11 @@
+<% if current_user.nil? %>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<%= link_to "sign-up", new_user_registration_path %> 
+<%= link_to "sign-up", signup_path %> 
 <br>
 <br>
 <br>
@@ -12,3 +13,6 @@
 <br>
 <br>
 <br>
+<% else %>
+You are logged in
+<% end %>
