@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_220700) do
+ActiveRecord::Schema.define(version: 2021_04_29_205724) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_220700) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_current"
+    t.string "timetable"
   end
 
   create_table "club_users", force: :cascade do |t|

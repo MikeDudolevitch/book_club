@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :club_users
-  resources :club_books
+  # resources :club_users
+  # resources :club_books
   resources :users
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   root 'static#home'
 
   resources :clubs
-  resources :books
+  # resources :books
   
 end

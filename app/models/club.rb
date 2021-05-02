@@ -5,7 +5,7 @@ class Club < ApplicationRecord
     has_many :users, through: :club_users
     has_many :books, through: :club_books
     
-    
+    #admin method
     def current_book=(book)
         self.club_books.each do |cb|
             if cb.is_current

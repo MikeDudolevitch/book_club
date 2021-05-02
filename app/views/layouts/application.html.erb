@@ -31,12 +31,7 @@
             View Your
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/characters">Characters</a></li>
-            <li><a class="dropdown-item" href="/categories">Classes</a></li>
-            <li><a class="dropdown-item" href="/races">Races</a></li>
-            <li><a class="dropdown-item" href="/weapons">Weapons</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/campaigns">Campaigns</a></li>
+            <li><a class="dropdown-item" href="/clubs">Clubs</a></li>
           </ul>
         </li>
             <li class="nav-item dropdown">
@@ -44,12 +39,7 @@
             Create New
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/characters/new">Characters</a></li>
-            <li><a class="dropdown-item" href="/categories/new">Classes</a></li>
-            <li><a class="dropdown-item" href="/races/new">Races</a></li>
-            <li><a class="dropdown-item" href="/weapons/new">Weapons</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/campaigns/new">Campaigns</a></li>
+            <li><a class="dropdown-item" href="/clubs/new">Book Club</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -62,20 +52,16 @@
          </li>
          <% else %>
             <li>
-                <%= link_to 'Login', login_path, class: 'nav-link active' %>
+                <%= button_to 'Login', login_path, class: 'nav-link active', method: "get" %>
             </li>
             <li>
-                <%= link_to 'Signup', signup_path, class: 'nav-link active' %>
+                <%= button_to 'Signup', signup_path, class: 'nav-link active', method: "get" %>
             </li>
             <li>
                 <%= button_to 'Login with Google', "/auth/google_oauth2", class: 'nav-link active', method: "post" %>
             </li>
         <% end %>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

@@ -1,25 +1,7 @@
-<h1> Welcome to <%= @club.name %> </h1>
-
-
-<% if @current_user.is_a_member(@club) %>
-    <%= @club.zoom_link %>
-<% else %>
-    <%= #link_to join club %>
-<% end %> 
-
-Current Book: <%= @club.current_book.name %>
-
-<% if @current_user.is_admin %>
-    Virtual Meeting Url: 
-<% end %>
-
-<ul>
-<% @club.books.each do |b| %>
-    <li><%= b.name %></li>
-<% end %>
-</ul>
-
-
-
-
-
+<h1> Welcome to <%= @club.name %> Book Club!</h1>
+<br>
+<br>
+<p> Our regular meeting days are on <%= @club.meeting_day.pluralize.titleize %>. Here is the meeting link: <%= @club.zoom_link %> </p> 
+<br>
+<br>
+<% link_to root_path %>
