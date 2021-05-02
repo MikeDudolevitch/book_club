@@ -1,7 +1,10 @@
 <h1> Welcome to <%= @club.name %> Book Club!</h1>
 <br>
 <br>
+<br>
 <p> Our regular meeting days are on <%= @club.meeting_day.pluralize.titleize %>. Here is the meeting link: <%= @club.zoom_link %> </p> 
 <br>
+<%= link_to "Create Book", new_book_path %>
 <br>
-<% link_to root_path %>
+<%= link_to "Return To Book Clubs", root_path %>
+

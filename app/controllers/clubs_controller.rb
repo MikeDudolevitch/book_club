@@ -27,7 +27,7 @@ class ClubsController < ApplicationController
 
     def show
         @club = Club.find_by(id: params[:id])
-
+        @book = @club.books.build
     end
 
     def delete
@@ -37,7 +37,7 @@ class ClubsController < ApplicationController
     private 
 
     def club_params
-        params.require(:club).permit(:name, :meeting_day, :zoom_link)
+        params.require(:club).permit(:name, :meeting_day, :zoom_link, book_attributes: [:name, :author])
     end
 
 end

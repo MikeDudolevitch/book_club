@@ -1,0 +1,7 @@
+<%= form_with(model: [@club, @book]) do |f| %>
+    <%= f.label "title" %>
+    <%= f.text_field "name" %>
+    <%= f.label "author" %>
+    <%= f.text_field "author" %>
+    <%= f.submit "Create Book" %>
+    <% end %>
