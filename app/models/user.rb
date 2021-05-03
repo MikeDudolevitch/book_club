@@ -1,14 +1,14 @@
 class User < ApplicationRecord
     has_secure_password
-    # validates :username, presence: true
-    # validates :username, uniqueness: true
-    # validates :email, presence: true
-    # validates :email, uniqueness: true
+    validates :username, presence: true
+    validates :username, uniqueness: true
+    validates :email, presence: true
+    validates :email, uniqueness: true
 
     has_many :club_users
     has_many :clubs, through: :club_users
 
-    def is_a_member?(club)
+    def is_admin?(club)
         if self.clubs.include?(club)
             true
         else
@@ -16,7 +16,7 @@ class User < ApplicationRecord
         end
     end
 
-    def is_admin(club)
+    def is_a_member(club)
         member = self.club_users.detect do |cu|
             cu.club == club
         end

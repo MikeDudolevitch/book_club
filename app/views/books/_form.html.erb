@@ -1,7 +1,9 @@
-<%= form_with(model: [@club, @book]) do |f| %>
+<%= form_with model: @book, url: club_books_path(@club), method: :post do |f| %>
+    <%= f.hidden_field "club_id", value: @club.id %>
     <%= f.label "title" %>
     <%= f.text_field "name" %>
     <%= f.label "author" %>
     <%= f.text_field "author" %>
     <%= f.submit "Create Book" %>
     <% end %>
+    

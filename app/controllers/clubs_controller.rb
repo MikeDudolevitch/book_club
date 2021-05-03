@@ -27,7 +27,7 @@ class ClubsController < ApplicationController
 
     def show
         @club = Club.find_by(id: params[:id])
-        @book = @club.books.build
+        @clubuser = ClubUser.new
     end
 
     def delete

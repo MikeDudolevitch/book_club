@@ -1,10 +1,24 @@
-<h1> Welcome to <%= @club.name %> Book Club!</h1>
+<h1> Welcome To The <%= @club.name %> Book Club!</h1>
 <br>
 <br>
+<% if @club.books.last != nil %>
+<h3> The current book we are reading is <%= link_to @club.books.last.name, club_book_path(@club, @club.books.last) %></h3>
+<% else %>
+<h4> There are no current books in this Club! </h4>
+<% end %> 
 <br>
 <p> Our regular meeting days are on <%= @club.meeting_day.pluralize.titleize %>. Here is the meeting link: <%= @club.zoom_link %> </p> 
 <br>
-<%= link_to "Create Book", new_book_path %>
+<% if current_user.club_users.find { |c| c.club_id == @club.id} %>
+     You Are A Member Of This Club
+    <% else %>
+    <%= form_with model: @clubuser, url: club_users_path, method: :post do |f| %>
+        <%= f.hidden_field "club_id", value: @club.id %>
+        <%= f.hidden_field "user_id", value: current_user.id %>
+        <%= f.submit "Join Club" %>
+        <% end %>
+    <% end %>
+<br>
+<%= link_to "Create Book", new_club_book_path(@club) %>
 <br>
 <%= link_to "Return To Book Clubs", root_path %>
-
