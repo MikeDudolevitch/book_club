@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'auth/:provider/callback', to: 'sessions#omniauth'
+  get 'auth/google_oauth2/callback', to: 'sessions#omniauth'
 
   
   resources :club_users

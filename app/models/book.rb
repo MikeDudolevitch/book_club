@@ -6,5 +6,6 @@ class Book < ApplicationRecord
         Book.order(created_at: :desc).limit(5)
     end
 
+    # scope :newest_books, -> { order(created_at: :desc).limit(5) }
 
 end

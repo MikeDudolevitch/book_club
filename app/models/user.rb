@@ -8,6 +8,14 @@ class User < ApplicationRecord
     has_many :club_users
     has_many :clubs, through: :club_users
 
+    def self.from_omniauth(auth)
+        # Creates a new user only if it doesn't exist
+        where(email: auth.info.email).first_or_initialize do |user|
+          user.username = auth.info.email
+          user.email = auth.info.email
+          user.password = SecureRandom.hex(15)
+        end
+      end
     
 
     def is_admin?(club)
