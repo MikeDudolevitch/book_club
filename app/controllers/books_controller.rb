@@ -30,6 +30,12 @@ class BooksController < ApplicationController
         end
     end
 
+    def recent_books
+        @books = Book.newest_books
+        render :index
+    end
+
+
 private
 
     def book_params
