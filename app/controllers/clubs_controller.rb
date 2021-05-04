@@ -31,7 +31,9 @@ class ClubsController < ApplicationController
     end
 
     def delete
-
+        @club = Club.find_by(id: params[:id])
+        @club.destroy
+        render root_path
     end
 
     private 

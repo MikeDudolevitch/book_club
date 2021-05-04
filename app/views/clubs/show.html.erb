@@ -11,6 +11,7 @@
 <br>
 <% if current_user.club_users.find { |c| c.club_id == @club.id} %>
      You Are A Member Of This Club
+     <br>
     <% else %>
     <%= form_with model: @clubuser, url: club_users_path, method: :post do |f| %>
         <%= f.hidden_field "club_id", value: @club.id %>
@@ -20,5 +21,7 @@
     <% end %>
 <br>
 <%= link_to "Create Book", new_club_book_path(@club) %>
+<br>
+<%= link_to "Delete This Club", club_path, method: :destroy %>
 <br>
 <%= link_to "Return To Book Clubs", root_path %>
