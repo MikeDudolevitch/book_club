@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # resources :club_books
   resources :users
+  get "/your_clubs", to: "clubs#your_clubs"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new" 

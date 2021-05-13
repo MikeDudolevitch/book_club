@@ -21,11 +21,17 @@ class ClubsController < ApplicationController
     end
 
     def edit
+        @club = Club.find_by(id: params[:id])
+    end
 
+    def your_clubs
+        @clubs = current_user.clubs
     end
 
     def update
-
+        @club = Club.find_by(id: params[:id])
+        @club.update(club_params)
+        redirect_to club_path(@club)
     end
 
     def show

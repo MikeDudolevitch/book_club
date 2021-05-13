@@ -1,11 +1,11 @@
-<h1> Build Your Book Club </h1>
+<h1> Edit Your Book Club </h1>
 <br>
-<%= form_for @club do |f| %>
+<%= form_for @club, method: "patch" do |f| %>
     <%= f.label "name" %>
     <%= f.text_field "name" %>
     <%= f.label "meeting day" %>
     <%= f.text_field "meeting_day" %>
     <%= f.label "zoom link" %>
     <%= f.text_field "zoom_link" %>
-    <%= f.submit "Create Club" %>
+    <%= f.submit "Edit Club" %>
     <% end %>
