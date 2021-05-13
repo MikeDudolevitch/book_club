@@ -8,28 +8,5 @@ class Club < ApplicationRecord
     def admin
         self.club_users.detect { |cu| cu.admin }.user
     end
-    
-    #admin method
-    def current_book=(book)
-        self.club_books.each do |cb|
-            if cb.is_current
-                cb.is_current = false
-                cb.save
-            elsif
-                cb.book.id == book.id
-                cb.is_current = true
-                cb.save
-            end
-        end
-    end
-
-    def current_book
-        current = self.club_books.detect do |cb|
-            cb.is_current
-        end
-        if current
-            current.book
-        end
-    end
 
 end
