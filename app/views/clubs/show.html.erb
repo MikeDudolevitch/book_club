@@ -25,6 +25,7 @@
 <% if @club.admin == current_user %>
 <%= link_to "Create Book", new_club_book_path(@club) %>
 <br>
+<br>
 <%= button_to "Edit This Club", edit_club_path(@club), method: "get" %>
 <br>
 <br>
