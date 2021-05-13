@@ -1,7 +1,11 @@
+
 <ul>
 
     <% @clubs.each do |c| %>
-        <li> <%= link_to c.name, club_path(c) %> </li>
+        <li> <%= c.name %> - <%= link_to "Visit Club", club_path(c) %> </li>
+        <br>
     <% end %>
 
+    <%= link_to "See What People Are Reading", books_path %>
+    
 </ul>

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   
   resources :club_users
+  resources :sessions
+  
+
   # resources :club_books
   resources :users
   get "/signup", to: "users#new"

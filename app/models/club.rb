@@ -5,6 +5,10 @@ class Club < ApplicationRecord
     has_many :users, through: :club_users
     has_many :books, through: :club_books
     
+    def admin
+        self.club_users.detect { |cu| cu.admin }.user
+    end
+    
     #admin method
     def current_book=(book)
         self.club_books.each do |cb|

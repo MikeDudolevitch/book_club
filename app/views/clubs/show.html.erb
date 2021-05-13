@@ -22,6 +22,6 @@
 <br>
 <%= link_to "Create Book", new_club_book_path(@club) %>
 <br>
-<%= link_to "Delete This Club", club_path, method: :destroy %>
+<%= button_to "Delete This Club", club_path(@club), method: "delete" %>
 <br>
 <%= link_to "Return To Book Clubs", root_path %>

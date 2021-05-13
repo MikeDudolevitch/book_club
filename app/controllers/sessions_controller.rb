@@ -2,37 +2,25 @@ class SessionsController < ApplicationController
 
 
     def new
+    
         @user = User.new
     end
 
     def create 
+        
         @user = User.find_by_username(params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
+       
         redirect_to root_path
+       
         else
-            render :new
+            flash[:alert] = "You did not login successfully"
+            redirect_to login_path
         end
     end
 
     def omniauth
-        # in with oauth
-        # # if that user has already logged in this way
-        # user = User.find_or_create_by(uid: request.env['omniauth.auth'][:uid], provider: request.env['omniauth.auth'][:provider]) do |u|
-        #     u.email = request.env['omniauth.auth'][:info][:email]
-        #     u.password = SecureRandom.hex(15)
-        #     u.username = request.env['omniauth.auth'][:info][:first_name]
-        # end
-
-        # # check that they register successful
-        # if user.valid? 
-        #     session[:user_id] = user.id   #log them in
-        #     redirect_to user_path(user)
-        # else
-        #     flash[:message] = "Oh snap! Something's wrong!"
-        #     redirect_to login_path
-        # end
-        # 
         access_token = request.env["omniauth.auth"]
         user = User.from_omniauth(access_token)
         session[:user_id] = user.id
@@ -50,8 +38,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.clear
-        redirect_to root_path
+        session.delete :user_id
+        redirect_to '/login'
     end
 
     private
