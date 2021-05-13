@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
   get 'auth/google_oauth2/callback', to: 'sessions#omniauth'
-
   
+  root 'static#home'
+  resources :users, :only => [:new]
+  resources :clubs do 
+    resources :books, :only => [:new, :index, :show]
+  end
+  resources :books
   resources :club_users
-  resources :sessions
   
-
-  # resources :club_books
-  resources :users
   get "/your_clubs", to: "clubs#your_clubs"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -17,15 +18,4 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy", as: "destroy"
   get "/books/recent_books", to: "books#recent_books", as: "recent_books"
   
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'static#home'
-
-  resources :clubs do 
-    resources :books
-  end
-  resources :books
-  # match '*path' => 'application_controller#fallback', via: [:all] 
-
-
 end

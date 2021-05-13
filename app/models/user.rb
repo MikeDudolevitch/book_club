@@ -19,7 +19,7 @@ class User < ApplicationRecord
     
     def is_admin?(club)
         if self.clubs.include?(club)
-            true
+            self.admin = true
         else
             false
         end
