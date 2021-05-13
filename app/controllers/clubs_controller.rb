@@ -8,6 +8,7 @@ class ClubsController < ApplicationController
     def create
         @club = Club.new(club_params)
         @club.club_users.build(user_id: current_user.id, admin: true)
+    
         if @club.save
             redirect_to club_path(@club)
         else
@@ -35,7 +36,7 @@ class ClubsController < ApplicationController
     def destroy
         @club = Club.find_by(id: params[:id])
         @club.destroy
-        redirect_to root_path
+        redirect_to clubs_path
     end
 
     private 

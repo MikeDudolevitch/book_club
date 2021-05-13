@@ -17,7 +17,6 @@ class User < ApplicationRecord
         end
       end
     
-
     def is_admin?(club)
         if self.clubs.include?(club)
             true
@@ -29,9 +28,6 @@ class User < ApplicationRecord
     def is_a_member(club)
         member = self.club_users.detect do |cu|
             cu.club == club
-        end
-        if member
-            member.admin
         end
     end
 
