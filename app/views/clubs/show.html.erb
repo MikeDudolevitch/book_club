@@ -9,6 +9,7 @@
 <br>
 <p> Our regular meeting days are on <%= @club.meeting_day.pluralize.titleize %>.</p> 
 <br>
+<p> We are reading this book for <%= @club.club_books.last.timetable %> </p>
 <% if current_user.club_users.find { |c| c.club_id == @club.id} %>
     <h4> You are a member! </h4>
     Here is the meeting link: <%= @club.zoom_link %> 

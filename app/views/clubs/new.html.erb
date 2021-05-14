@@ -1,5 +1,6 @@
 <h1> Build Your Book Club </h1>
 <br>
+<%= render partial: "partials/errors", locals: {model: @club} %>
 <%= form_for @club do |f| %>
     <%= f.label "name" %>
     <%= f.text_field "name" %>

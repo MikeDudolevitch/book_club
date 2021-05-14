@@ -10,7 +10,6 @@ class ClubsController < ApplicationController
         redirect_if_not_logged_in
         @club = Club.new(club_params)
         @club.club_users.build(user_id: current_user.id, admin: true)
-    
         if @club.save
             redirect_to club_path(@club)
         else

@@ -22,10 +22,11 @@ class BooksController < ApplicationController
 
     def create
         redirect_if_not_logged_in
-        @book = Book.new(book_params)
+        @book = Book.create(book_params)
         @club = Club.find(params[:club_id])
+        binding.pry
         if @book.save 
-            ClubBook.create(club_id: @club.id, book_id: @book.id)
+            ClubBook.create(club_id: @club.id, book_id: @book.id, timetable: params[:timetable])
             redirect_to club_path(@club)
         else
             flash[:message] = "Did Not Save Book"
