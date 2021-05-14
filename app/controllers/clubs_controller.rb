@@ -52,6 +52,10 @@ class ClubsController < ApplicationController
         redirect_to clubs_path
     end
 
+    def clubs_with_most_books
+        @club = Club.club_with_most_books
+    end
+
     private 
 
     def club_params

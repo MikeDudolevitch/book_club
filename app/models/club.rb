@@ -12,4 +12,6 @@ class Club < ApplicationRecord
         self.club_users.detect { |cu| cu.admin }.user
     end
 
+    scope :club_with_most_books, -> { order(club_books: :desc).count.limit(1) }
+
 end
