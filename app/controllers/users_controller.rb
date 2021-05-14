@@ -22,17 +22,6 @@ class UsersController < ApplicationController
         @user = User.find_by(params[:username])
     end
 
-    def update
-
-    end
-
-    def show
-
-    end
-
-    def delete
-
-    end
 
     private
 

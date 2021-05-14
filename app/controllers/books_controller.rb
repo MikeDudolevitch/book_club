@@ -36,7 +36,7 @@ class BooksController < ApplicationController
     def recent_books
         redirect_if_not_logged_in
         @books = Book.newest_books
-        render :index
+        render 'index'
     end
 
 

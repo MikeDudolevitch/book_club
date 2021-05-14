@@ -5,5 +5,3 @@ Additionally, you are able to use the 'create club' function create your own clu
 From the dashboard page, you are able to check out what books are being read, and the top 5 most recent book additions in various clubs. 
 When finished, simply click the 'logout' button on the top nav-bar.
 Thanks for using the Book Club app!
- 
-# book_club
