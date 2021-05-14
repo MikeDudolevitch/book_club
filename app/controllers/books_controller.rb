@@ -26,7 +26,7 @@ class BooksController < ApplicationController
         @club = Club.find(params[:club_id])
         binding.pry
         if @book.save 
-            ClubBook.create(club_id: @club.id, book_id: @book.id, timetable: params[:timetable])
+            @clubbook = ClubBook.create(club_id: @club.id, book_id: @book.id, timetable: params[:timetable])
             redirect_to club_path(@club)
         else
             flash[:message] = "Did Not Save Book"
