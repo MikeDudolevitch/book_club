@@ -52,8 +52,8 @@ class ClubsController < ApplicationController
         redirect_to clubs_path
     end
 
-    def clubs_with_most_books
-        @club = Club.club_with_most_books
+    def club_with_most_books
+        @club_name_and_book_count = Club.club_with_most_books
     end
 
     private 

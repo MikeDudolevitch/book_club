@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new" 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: "destroy"
-  get "/clubs_with_most_books", to: "clubs#clubs_with_most_books"
+  get "/club_with_most_books", to: "clubs#club_with_most_books"
   get "/books/recent_books", to: "books#recent_books", as: "recent_books"
   get 'auth/google_oauth2/callback', to: 'sessions#omniauth'
   
